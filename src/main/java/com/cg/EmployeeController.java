@@ -1,5 +1,6 @@
 package com.cg;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("api/employees")
@@ -29,8 +31,10 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/{id}")
-	public Employee getEmployee(@PathVariable("id") long id){
-		return employeeService.getEmployee(id);
+	public ResponseEntity<Employee> getEmployee(@PathVariable("id") long id){
+		Employee employee = employeeService.getEmployee(id);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+		return ResponseEntity.created(uri).body(employee);
 	}
 	
 	@PostMapping
