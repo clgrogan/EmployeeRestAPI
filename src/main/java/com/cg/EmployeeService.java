@@ -1,6 +1,7 @@
 package com.cg;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -15,5 +16,13 @@ public class EmployeeService {
 	
 	public List<Employee> getEmployees(){
 		return employeeRepository.findAll();
+	}
+
+	public Employee getEmployee(long id) {
+		Optional<Employee> empOptional = employeeRepository.findById(id);
+		if(!empOptional.isPresent()) {
+			throw new EmployeeNotFoundException("Employee with id " + id + " not found");
+		}
+		return empOptional.get();
 	}
 }
