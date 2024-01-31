@@ -25,4 +25,16 @@ public class EmployeeService {
 		}
 		return empOptional.get();
 	}
+	
+	public Employee createEmployee(Employee employee) {
+		return employeeRepository.save(employee);
+	}
+	
+	public Employee updateEmployee(Employee employee) {
+		return employeeRepository.save(employee);
+	}
+
+	public void deleteEmployee(long id) {
+		employeeRepository.deleteById(id);
+	}
 }

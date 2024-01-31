@@ -12,7 +12,7 @@ public class Employee {
 	@GeneratedValue
 	private long id;
 	private String firstName;
-	private String lastNameString;
+	private String lastName;
 	private BigDecimal salary;
 	private String state;
 	private String country;
@@ -21,10 +21,10 @@ public class Employee {
 		super();
 	}
 	
-	public Employee(String firstName, String lastNameString, BigDecimal salary, String state, String country) {
+	public Employee(String firstName, String lastName, BigDecimal salary, String state, String country) {
 		super();
 		this.firstName = firstName;
-		this.lastNameString = lastNameString;
+		this.lastName = lastName;
 		this.salary = salary;
 		this.state = state;
 		this.country = country;
@@ -46,12 +46,12 @@ public class Employee {
 		this.firstName = firstName;
 	}
 
-	public String getLastNameString() {
-		return lastNameString;
+	public String getlastName() {
+		return lastName;
 	}
 
-	public void setLastNameString(String lastNameString) {
-		this.lastNameString = lastNameString;
+	public void setlastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public BigDecimal getSalary() {
@@ -80,7 +80,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastNameString=" + lastNameString + ", salary="
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", salary="
 				+ salary + ", state=" + state + ", country=" + country + "]";
 	}	
 
